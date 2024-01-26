@@ -1,16 +1,16 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Temperatur-oppg LANGUAGES CXX)
+project(klasser-person LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(Temperatur-oppg main.cpp
-
-)
+add_executable(klasser-person person.cpp
+    person.h
+    main.cpp)
 
 include(GNUInstallDirs)
-install(TARGETS Temperatur-oppg
+install(TARGETS klasser-person
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
