@@ -1,31 +1,44 @@
 #include "header.h"
 #include <iostream>
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
 void TemperatureCalculator::inputTemperatures() {
-    cout << "Enter temperature 1: ";
-    cin >> temp1;
+    temperatures.resize(3);
 
-    cout << "Enter temperature 2: ";
-    cin >> temp2;
-
-    cout << "Enter temperature 3: ";
-    cin >> temp3;
+    for (int i = 0; i < 3; ++i) {
+        cout << "Enter temperature " << i + 1 << ": ";
+        cin >> temperatures[i];
+    }
 }
 
 void TemperatureCalculator::calculateLow() {
-    lowestTemp = min(min(temp1, temp2), temp3);
+    lowestTemp = temperatures[0];
+    for (int i = 1; i < 3; ++i) {
+        if (temperatures[i] < lowestTemp) {
+            lowestTemp = temperatures[i];
+        }
+    }
 }
 
-void TemperatureCalculator::calculateHigh(){
-    highestTemp = max(max(temp1, temp2), temp3);
+void TemperatureCalculator::calculateHigh() {
+    highestTemp = temperatures[0];
+    for (int i = 1; i < 3; ++i) {
+        if (temperatures[i] > highestTemp) {
+            highestTemp = temperatures[i];
+        }
+    }
 }
 
-void TemperatureCalculator::calculateAvg(){
-    averageTemp = (temp1 + temp2 + temp3) / 3.0;
+void TemperatureCalculator::calculateAvg() {
+    double sum = 0.0;
+    for (int i = 0; i < 3; ++i) {
+        sum += temperatures[i];
+    }
+    averageTemp = sum / temperatures.size();;
 }
+
 void TemperatureCalculator::displayResults() const {
     cout << "\nLowest Temperature: " << lowestTemp << " degrees\n";
     cout << "Highest Temperature: " << highestTemp << " degrees\n";

@@ -1,5 +1,6 @@
 #ifndef HEADER_H
 #define HEADER_H
+#include <vector>
 
 class TemperatureCalculator {
 public:
@@ -15,7 +16,7 @@ public:
     void displayResults() const;
 
 private:
-    double temp1, temp2, temp3;
+    std::vector<double> temperatures;
     double lowestTemp, highestTemp, averageTemp;
 };
 
