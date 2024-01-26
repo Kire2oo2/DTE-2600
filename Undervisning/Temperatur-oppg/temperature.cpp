@@ -5,9 +5,14 @@
 using namespace std;
 
 void TemperatureCalculator::inputTemperatures() {
-    temperatures.resize(3);
+    int numTemperatures;
 
-    for (int i = 0; i < 3; ++i) {
+    cout << "Enter the number of temperatures you want to input: ";
+    cin >> numTemperatures;
+
+    temperatures.resize(numTemperatures);
+
+    for (int i = 0; i < numTemperatures; ++i) {
         cout << "Enter temperature " << i + 1 << ": ";
         cin >> temperatures[i];
     }
@@ -15,7 +20,7 @@ void TemperatureCalculator::inputTemperatures() {
 
 void TemperatureCalculator::calculateLow() {
     lowestTemp = temperatures[0];
-    for (int i = 1; i < 3; ++i) {
+    for (int i = 1; i < temperatures.size(); ++i) {
         if (temperatures[i] < lowestTemp) {
             lowestTemp = temperatures[i];
         }
@@ -24,7 +29,7 @@ void TemperatureCalculator::calculateLow() {
 
 void TemperatureCalculator::calculateHigh() {
     highestTemp = temperatures[0];
-    for (int i = 1; i < 3; ++i) {
+    for (int i = 1; i < temperatures.size(); ++i) {
         if (temperatures[i] > highestTemp) {
             highestTemp = temperatures[i];
         }
@@ -33,7 +38,7 @@ void TemperatureCalculator::calculateHigh() {
 
 void TemperatureCalculator::calculateAvg() {
     double sum = 0.0;
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < temperatures.size(); ++i) {
         sum += temperatures[i];
     }
     averageTemp = sum / temperatures.size();;
