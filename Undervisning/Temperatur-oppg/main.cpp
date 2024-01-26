@@ -4,7 +4,9 @@ int main() {
     TemperatureCalculator calculator;
 
     calculator.inputTemperatures();
-    calculator.calculateTemperatures();
+    calculator.calculateLow();
+    calculator.calculateHigh();
+    calculator.calculateAvg();
     calculator.displayResults();
 
     return 0;

@@ -6,8 +6,10 @@ public:
     // Function to get temperatures from the user
     void inputTemperatures();
 
-    // Function to calculate lowest, highest, and average temperatures
-    void calculateTemperatures();
+    // Functions to calculate lowest, highest, and average temperatures
+    void calculateLow();
+    void calculateHigh();
+    void calculateAvg();
 
     // Function to display results
     void displayResults() const;

@@ -1,4 +1,3 @@
-// temperature.cpp
 #include "header.h"
 #include <iostream>
 #include <algorithm>
@@ -16,12 +15,17 @@ void TemperatureCalculator::inputTemperatures() {
     cin >> temp3;
 }
 
-void TemperatureCalculator::calculateTemperatures() {
+void TemperatureCalculator::calculateLow() {
     lowestTemp = min(min(temp1, temp2), temp3);
-    highestTemp = max(max(temp1, temp2), temp3);
-    averageTemp = (temp1 + temp2 + temp3) / 3.0;
 }
 
+void TemperatureCalculator::calculateHigh(){
+    highestTemp = max(max(temp1, temp2), temp3);
+}
+
+void TemperatureCalculator::calculateAvg(){
+    averageTemp = (temp1 + temp2 + temp3) / 3.0;
+}
 void TemperatureCalculator::displayResults() const {
     cout << "\nLowest Temperature: " << lowestTemp << " degrees\n";
     cout << "Highest Temperature: " << highestTemp << " degrees\n";
