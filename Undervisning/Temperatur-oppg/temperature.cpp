@@ -36,6 +36,10 @@ void TemperatureCalculator::calculateHigh() {
     }
 }
 
+void TemperatureCalculator::calculateDiff(){
+    differenceTemp = highestTemp - lowestTemp;
+}
+
 void TemperatureCalculator::calculateAvg() {
     double sum = 0.0;
     for (int i = 0; i < temperatures.size(); ++i) {
@@ -48,4 +52,5 @@ void TemperatureCalculator::displayResults() const {
     cout << "\nLowest Temperature: " << lowestTemp << " degrees\n";
     cout << "Highest Temperature: " << highestTemp << " degrees\n";
     cout << "Average Temperature: " << averageTemp << " degrees\n";
+    cout << "Temperature Difference: " << differenceTemp << " degrees\n";
 }

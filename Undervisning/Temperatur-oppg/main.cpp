@@ -7,6 +7,7 @@ int main() {
     calculator.calculateLow();
     calculator.calculateHigh();
     calculator.calculateAvg();
+    calculator.calculateDiff();
     calculator.displayResults();
 
     return 0;
