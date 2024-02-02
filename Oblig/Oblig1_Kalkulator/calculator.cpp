@@ -1,5 +1,6 @@
 #include "header.h"
 #include <iostream>
+#include <cmath>
 
 void calculator::start(){  
     do {
@@ -30,28 +31,32 @@ void calculator::start(){
             division(resultMulti,multiCalculation);
             break;
         case 5:
-            multiCalculation = !multiCalculation;
+            power(resultMulti,multiCalculation);
             break;
         case 6:
+            multiCalculation = !multiCalculation;
+            break;
+        case 7:
             std::cout << "The program is quitting" << std::endl;
             break;
         default:
             std::cout << "Invalid operation, try again" << std::endl;
         }
 
-    } while (choice != 6); //stopper programmet/loopen hvis brukeren velger 5 for å avslutte
+    } while (choice != 7); //stopper programmet/loopen hvis brukeren velger 5 for å avslutte
 }
 
 
 void calculator::displayMainMenu(bool& multiCalculation){
     std::cout << "\n"
-            "Welcome to calculator V0.4\n"
+            "Welcome to calculator V0.5\n"
             "1. Addition\n"
             "2. Subtraction\n"
             "3. Multiplication\n"
             "4. Division\n"
-            "5. Toggle multi-calculation mode (currently: " << (multiCalculation ? "On )\n" : "Off )\n") <<
-            "6. Quit the program\n\n"
+            "5. Exponential\n"
+            "6. Toggle multi-calculation mode (currently: " << (multiCalculation ? "On )\n" : "Off )\n") <<
+            "7. Quit the program\n\n"
             "please choose an option: ";
 }
 
@@ -68,7 +73,7 @@ void calculator::output(double&result){
 }
 
 
-void calculator::inputMultiMode(double& resultMulti,double& num1,double& num2){
+void calculator::inputMultiMode(double& resultMulti,double& num2){
     std::cout << "number 1: " << resultMulti << "\n";
     std::cout << "Number 2: ";
     std::cin >> num2;
@@ -85,7 +90,7 @@ void calculator::addition(double& resultMulti, bool& multiCalculation){
         output(result);
     }
     else{
-        inputMultiMode(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num2);
         resultMulti = resultMulti + num2;
         outputMultiMode(resultMulti);
     }
@@ -98,7 +103,7 @@ void calculator::subtraction(double& resultMulti, bool& multiCalculation){
         output(result);
     }
     else{
-        inputMultiMode(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num2);
         resultMulti = resultMulti - num2;
         outputMultiMode(resultMulti);
     }
@@ -111,7 +116,7 @@ void calculator::multiplication(double& resultMulti, bool& multiCalculation){
         output(result);
     }
     else{
-        inputMultiMode(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num2);
         resultMulti = resultMulti * num2;
         outputMultiMode(resultMulti);
     }
@@ -124,8 +129,23 @@ void calculator::division(double& resultMulti, bool& multiCalculation){
         output(result);
     }
     else{
-        inputMultiMode(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num2);
         resultMulti = resultMulti / num2;
+        outputMultiMode(resultMulti);
+    }
+}
+
+void calculator::power(double& resultMulti, bool& multiCalculation){
+    if( multiCalculation == false){
+        std::cout << "num1 = base, num2 = exponent\n";
+        input(num1,num2);
+        result = std::pow(num1,num2);
+        output(result);
+    }
+    else{
+        std::cout << "num1 = base, num2 = exponent\n";
+        inputMultiMode(resultMulti,num2);
+        resultMulti = std::pow(resultMulti,num2);
         outputMultiMode(resultMulti);
     }
 }

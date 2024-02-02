@@ -15,17 +15,18 @@ private:
     bool multiCalculation = false;
 
     void input(double& num1,double& num2);
-    void inputMultiMode(double& resultMulti,double& num1,double& num2);
+    void inputMultiMode(double& resultMulti,double& num2);
 
     void output(double&result);
     void outputMultiMode(double&resultMulti);
 
 
     void displayMainMenu(bool& multiCalculation);
-    void addition(double& result, bool& multiCalculation);
-    void subtraction(double& result, bool& multiCalculation);
-    void multiplication(double& result, bool& multiCalculation);
-    void division(double& result, bool& multiCalculation);
+    void addition(double& resultMulti, bool& multiCalculation);
+    void subtraction(double& resultMulti, bool& multiCalculation);
+    void multiplication(double& resultMulti, bool& multiCalculation);
+    void division(double& resulMultit, bool& multiCalculation);
+    void power(double& resultMulti, bool& multiCalculation);
 };
 
 #endif // HEADER_H
