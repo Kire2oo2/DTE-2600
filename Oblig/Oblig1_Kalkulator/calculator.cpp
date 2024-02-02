@@ -57,67 +57,76 @@ void calculator::displayMainMenu(bool& multiCalculation){
 
 
 
-void calculator::input1(double& resultMulti,double& num1,double& num2){
-    std::cout << "number 1: " << resultMulti << "\n";
-    std::cout << "Number 2: ";
-    std::cin >> num2;
-}
-
-
-void calculator::input2(double& num1,double& num2){
+void calculator::input(double& num1,double& num2){
     std::cout << "Number 1: ";
     std::cin >> num1;
     std::cout << "Number 2: ";
     std::cin >> num2;
 }
+void calculator::output(double&result){
+    std::cout << "result: " << result << std::endl;
+}
 
+
+void calculator::inputMultiMode(double& resultMulti,double& num1,double& num2){
+    std::cout << "number 1: " << resultMulti << "\n";
+    std::cout << "Number 2: ";
+    std::cin >> num2;
+}
+void calculator::outputMultiMode(double&resultMulti){
+    std::cout << "result: " << resultMulti << std::endl;
+}
 
 
 void calculator::addition(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        input2(num1,num2);
-        std::cout << "result: " << num1 + num2 << std::endl;
+        input(num1,num2);
+        result = num1 + num2;
+        output(result);
     }
     else{
-        input1(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num1,num2);
         resultMulti = resultMulti + num2;
-        std::cout << "result: " << resultMulti << std::endl;
+        outputMultiMode(resultMulti);
     }
 }
 
 void calculator::subtraction(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        input2(num1,num2);
-        std::cout << "result: " << num1 - num2 << std::endl;
+        input(num1,num2);
+        result = num1 - num2;
+        output(result);
     }
     else{
-        input1(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num1,num2);
         resultMulti = resultMulti - num2;
-        std::cout << "result: " << resultMulti << std::endl;
+        outputMultiMode(resultMulti);
     }
 }
 
 void calculator::multiplication(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        input2(num1,num2);
-        std::cout << "result: " << num1 * num2 << std::endl;
+        input(num1,num2);
+        result = num1 * num2;
+        output(result);
     }
     else{
-        input1(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num1,num2);
         resultMulti = resultMulti * num2;
-        std::cout << "result: " << resultMulti << std::endl;
+        outputMultiMode(resultMulti);
     }
 }
 
 void calculator::division(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        input2(num1,num2);
-        std::cout << "result: " << num1 / num2 << std::endl;
+        input(num1,num2);
+        result = num1 / num2;
+        output(result);
     }
     else{
-        input1(resultMulti,num1,num2);
+        inputMultiMode(resultMulti,num1,num2);
         resultMulti = resultMulti / num2;
-        std::cout << "result: " << resultMulti << std::endl;
+        outputMultiMode(resultMulti);
     }
 }
 

@@ -10,11 +10,16 @@ public:
 private:
     double num1, num2;
     int choice;
+    double result = 0;
     double resultMulti = 0;
     bool multiCalculation = false;
 
-    void input1(double& result,double& num1,double& num2);
-    void input2(double& num1,double& num2);
+    void input(double& num1,double& num2);
+    void inputMultiMode(double& resultMulti,double& num1,double& num2);
+
+    void output(double&result);
+    void outputMultiMode(double&resultMulti);
+
 
     void displayMainMenu(bool& multiCalculation);
     void addition(double& result, bool& multiCalculation);
