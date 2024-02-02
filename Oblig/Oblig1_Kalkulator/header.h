@@ -4,15 +4,15 @@
 class calculator{
 public:
     void start();
-    void displayMainMenu();
-    double result;
+
+
 
 private:
-    void addition();
-    void subtraction();
-    void multiplication();
-    void division();
-
+    void displayMainMenu(bool& multiCalculation);
+    void addition(double& result, bool& multiCalculation);
+    void subtraction(double& result, bool& multiCalculation);
+    void multiplication(double& result, bool& multiCalculation);
+    void division(double& result, bool& multiCalculation);
 };
 
 #endif // HEADER_H
