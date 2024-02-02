@@ -4,15 +4,28 @@
 class calculator{
 public:
     void start();
-    void displayMainMenu();
-    double result;
+
+
 
 private:
-    void addition();
-    void subtraction();
-    void multiplication();
-    void division();
+    double num1, num2;
+    int choice;
+    double result = 0;
+    double resultMulti = 0;
+    bool multiCalculation = false;
 
+    void input(double& num1,double& num2);
+    void inputMultiMode(double& resultMulti,double& num1,double& num2);
+
+    void output(double&result);
+    void outputMultiMode(double&resultMulti);
+
+
+    void displayMainMenu(bool& multiCalculation);
+    void addition(double& result, bool& multiCalculation);
+    void subtraction(double& result, bool& multiCalculation);
+    void multiplication(double& result, bool& multiCalculation);
+    void division(double& result, bool& multiCalculation);
 };
 
 #endif // HEADER_H
