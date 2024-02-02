@@ -27,6 +27,7 @@ private:
     void multiplication(double& resultMulti, bool& multiCalculation);
     void division(double& resulMultit, bool& multiCalculation);
     void power(double& resultMulti, bool& multiCalculation);
+    void squareRoot(double& resultMulti, bool& multiCalculation);
 };
 
 #endif // HEADER_H
