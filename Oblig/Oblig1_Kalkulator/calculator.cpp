@@ -1,13 +1,7 @@
 #include "header.h"
 #include <iostream>
 
-
-
-
-void calculator::start(){
-    int choice;
-    double result = 0;
-    bool multiCalculation = false;
+void calculator::start(){  
     do {
         displayMainMenu(multiCalculation);
 
@@ -24,16 +18,16 @@ void calculator::start(){
 
         switch (choice) {
         case 1:
-            addition(result,multiCalculation);
+            addition(resultMulti,multiCalculation);
             break;
         case 2:
-            subtraction(result,multiCalculation);
+            subtraction(resultMulti,multiCalculation);
             break;
         case 3:
-            multiplication(result,multiCalculation);
+            multiplication(resultMulti,multiCalculation);
             break;
         case 4:
-            division(result,multiCalculation);
+            division(resultMulti,multiCalculation);
             break;
         case 5:
             multiCalculation = !multiCalculation;
@@ -48,9 +42,10 @@ void calculator::start(){
     } while (choice != 6); //stopper programmet/loopen hvis brukeren velger 5 for å avslutte
 }
 
+
 void calculator::displayMainMenu(bool& multiCalculation){
     std::cout << "\n"
-            "Welcome to calculator V0.3\n"
+            "Welcome to calculator V0.4\n"
             "1. Addition\n"
             "2. Subtraction\n"
             "3. Multiplication\n"
@@ -62,81 +57,67 @@ void calculator::displayMainMenu(bool& multiCalculation){
 
 
 
-void calculator::addition(double& result, bool& multiCalculation){
-    double num1, num2;
+void calculator::input1(double& resultMulti,double& num1,double& num2){
+    std::cout << "number 1: " << resultMulti << "\n";
+    std::cout << "Number 2: ";
+    std::cin >> num2;
+}
+
+
+void calculator::input2(double& num1,double& num2){
+    std::cout << "Number 1: ";
+    std::cin >> num1;
+    std::cout << "Number 2: ";
+    std::cin >> num2;
+}
+
+
+
+void calculator::addition(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        std::cout << "Add two numbers:\n"
-                     "Number 1: ";
-        std::cin >> num1;
-        std::cout << "Number 2: ";
-        std::cin >> num2;
+        input2(num1,num2);
         std::cout << "result: " << num1 + num2 << std::endl;
     }
     else{
-        std::cout << "addition\n";
-        std::cout << "number 1: " << result << "\n";
-        std::cout << "number 2: ";
-        std::cin >> num2;
-        result = result + num2;
-        std::cout << "result: " << result << std::endl;
+        input1(resultMulti,num1,num2);
+        resultMulti = resultMulti + num2;
+        std::cout << "result: " << resultMulti << std::endl;
     }
 }
 
-void calculator::subtraction(double& result, bool& multiCalculation){
-    double num1, num2;
+void calculator::subtraction(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        std::cout << "Subtract two numbers:\n"
-                     "Number 1: ";
-        std::cin >> num1;
-        std::cout << "Number 2: ";
-        std::cin >> num2;
-        std::cout << "Result: " << num1 - num2 << std::endl;
+        input2(num1,num2);
+        std::cout << "result: " << num1 - num2 << std::endl;
     }
     else{
-        std::cout << "Subtract\n";
-        std::cout << "number 1: " << result << "\n";
-        std::cout << "number 2: ";
-        std::cin >> num2;
-        result = result - num2;
-        std::cout << "result: " << result << std::endl;
+        input1(resultMulti,num1,num2);
+        resultMulti = resultMulti - num2;
+        std::cout << "result: " << resultMulti << std::endl;
     }
 }
 
-void calculator::multiplication(double& result, bool& multiCalculation){
-    double num1, num2;
+void calculator::multiplication(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        std::cout << "Multiply two numbers:\n"
-                     "Number 1: ";
-        std::cin >> num1;
-        std::cout << "Number 2: ";
-        std::cin >> num2;
-        std::cout << "Result: " << num1 * num2 << std::endl;
+        input2(num1,num2);
+        std::cout << "result: " << num1 * num2 << std::endl;
     }
     else{
-        std::cout << "Multiply\n";
-        std::cout << "number 1: " << result << "\n";
-        std::cout << "Number 2: ";
-        std::cin >> num2;
-        result = result * num2;
-        std::cout << "result: " << result << std::endl;
+        input1(resultMulti,num1,num2);
+        resultMulti = resultMulti * num2;
+        std::cout << "result: " << resultMulti << std::endl;
     }
 }
 
-void calculator::division(double& result, bool& multiCalculation){
-    double num1, num2;
+void calculator::division(double& resultMulti, bool& multiCalculation){
     if( multiCalculation == false){
-        std::cout << "Divide two numbers:\n"
-                     "Number 1: ";
-        std::cout << "Number 2: ";
-        std::cin >> num2;
-        std::cout << "Result: " << num1 / num2 << std::endl;
+        input2(num1,num2);
+        std::cout << "result: " << num1 / num2 << std::endl;
     }
     else{
-        std::cout << "Divide\n";
-        std::cout << "number 1: " << result << "\n";
-        std::cout << "Number 2: ";
-        std::cin >> num2;
-        result = result / num2;
-        std::cout << "result: " << result << std::endl;
+        input1(resultMulti,num1,num2);
+        resultMulti = resultMulti / num2;
+        std::cout << "result: " << resultMulti << std::endl;
     }
 }
+
