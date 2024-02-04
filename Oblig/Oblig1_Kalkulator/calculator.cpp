@@ -5,7 +5,8 @@
 
 //logic for main menu, and the main loop that continues until the user inputs 7 when main menu is up
 //takes an input, checks if its an integer, then uses a switch statement to go to the given math function or toggle mode
-void calculator::start(){  
+void calculator::start(){
+
     do {
         displayMainMenu(multiCalculation);
 
