@@ -101,7 +101,6 @@ void handleCircle(Circle& circle) {
     double newValue;
 
     //prints out the current shapes size / color, as well as gives the user the menu to choose what to do with this shape:
-    std::cout << "Circle:" << std::endl;
     circle.print();
     std::cout << std::endl;
     std::cout << "1. Scale\n2. Enter new radius and color\n0. Back\nEnter your choice: ";
@@ -138,7 +137,6 @@ void handleSquare(Square& square) {
     double newValue;
 
     //prints out the current shapes size / color, as well as gives the user the menu to choose what to do with this shape:
-    std::cout << "Square:" << std::endl;
     square.print();
     std::cout << std::endl;
     std::cout << "1. Scale\n2. Enter new side length and color\n0. Back\nEnter your choice: ";
@@ -175,7 +173,6 @@ void handleTriangle(Triangle& triangle) {
     double newBase, newHeight;
 
     //prints out the current shapes size / color, as well as gives the user the menu to choose what to do with this shape:
-    std::cout << "Triangle:" << std::endl;
     triangle.print();
     std::cout << std::endl;
     std::cout << "1. Scale\n2. Enter new base and height + color\n0. Back\nEnter your choice: ";
