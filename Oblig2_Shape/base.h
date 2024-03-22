@@ -7,10 +7,7 @@
 enum class Color {
     RED,
     GREEN,
-    BLUE,
-    YELLOW,
-    BLACK,
-    WHITE
+    BLUE
 };
 
 class BaseShape2D {
@@ -39,6 +36,11 @@ public:
         printDetails();
     }
 
+    // Method to set the color of the shape
+    void setColor(Color c) {
+        color = c;
+    }
+
 protected:
     // Virtual function to get the name of the shape
     virtual std::string getShapeName() const = 0;
@@ -49,9 +51,6 @@ protected:
         case Color::RED:    return "Red";
         case Color::GREEN:  return "Green";
         case Color::BLUE:   return "Blue";
-        case Color::YELLOW: return "Yellow";
-        case Color::BLACK:  return "Black";
-        case Color::WHITE:  return "White";
         default:            return "Unknown";
         }
     }
@@ -59,5 +58,4 @@ protected:
     // Virtual function to print specific details of the shape
     virtual void printDetails() const = 0;
 };
-
 #endif // BASE_H

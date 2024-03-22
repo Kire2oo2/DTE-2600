@@ -22,6 +22,7 @@ public:
         side *= scale;
     }
 
+
 protected:
     std::string getShapeName() const override {
         return "Square";
