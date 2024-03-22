@@ -53,7 +53,10 @@ void printMenu() {
 
 //Function to both print out menu of options and take input to change color of given shape
 void handleColorChange(BaseShape2D& shape) {
+    //variables to handle inputs from user
     int choice;
+
+    //prints out the current shapes size / color, aswell as gives the user the menu to choose what to do with this shape:
     std::cout << "Select color:\n1. Red\n2. Green\n3. Blue\nEnter your choice: ";
     std::cin >> choice;
     switch (choice) {
@@ -79,12 +82,14 @@ void handleCircle(Circle& circle) {
     double scale;
     double newValue;
 
+    //prints out the current shapes size / color, aswell as gives the user the menu to choose what to do with this shape:
     std::cout << "Circle:" << std::endl;
     circle.print();
     std::cout << std::endl;
     std::cout << "1. Scale\n2. Enter new radius and color\n0. Back\nEnter your choice: ";
     std::cin >> choice;
 
+    //either scales the object or resets / asks for new size and color
     switch (choice) {
     case 1:
         std::cout << "Enter scaling factor: ";
@@ -114,12 +119,14 @@ void handleSquare(Square& square) {
     double scale;
     double newValue;
 
+    //prints out the current shapes size / color, aswell as gives the user the menu to choose what to do with this shape:
     std::cout << "Square:" << std::endl;
     square.print();
     std::cout << std::endl;
     std::cout << "1. Scale\n2. Enter new side length and color\n0. Back\nEnter your choice: ";
     std::cin >> choice;
 
+    //either scales the object or resets / asks for new size and color
     switch (choice) {
     case 1:
         std::cout << "Enter scaling factor: ";
@@ -158,7 +165,7 @@ void handleTriangle(Triangle& triangle) {
     std::cin >> choice;
 
 
-
+    //either scales the object or resets / asks for new size and color
     switch (choice) {
     case 1:
         std::cout << "Enter scaling factor: ";
