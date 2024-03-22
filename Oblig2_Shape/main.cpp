@@ -3,12 +3,13 @@
 #include "square.h"
 #include "triangle.h"
 
-// Function prototypes
+// Functions
 void printMenu();
 void handleCircle(Circle& circle);
 void handleSquare(Square& square);
 void handleTriangle(Triangle& triangle);
 
+//main loop, handles only the main menu and its options to jump into the other functions with the given shape
 int main() {
     Circle circle(Color::RED, 2.0);
     Square square(Color::GREEN, 3.0);
@@ -50,6 +51,7 @@ void printMenu() {
     std::cout << "Enter your choice: ";
 }
 
+//Function to both print out menu of options and take input to change color of given shape
 void handleColorChange(BaseShape2D& shape) {
     int choice;
     std::cout << "Select color:\n1. Red\n2. Green\n3. Blue\nEnter your choice: ";
@@ -69,7 +71,10 @@ void handleColorChange(BaseShape2D& shape) {
     }
 }
 
+
+//Function that handles all operations with circle shape
 void handleCircle(Circle& circle) {
+    //variables to handle inputs from user
     int choice;
     double scale;
     double newValue;
@@ -77,7 +82,7 @@ void handleCircle(Circle& circle) {
     std::cout << "Circle:" << std::endl;
     circle.print();
     std::cout << std::endl;
-    std::cout << "1. Scale\n2. Enter new radius\n3. Change color\n0. Back\nEnter your choice: ";
+    std::cout << "1. Scale\n2. Enter new radius and color\n0. Back\nEnter your choice: ";
     std::cin >> choice;
 
     switch (choice) {
@@ -90,8 +95,6 @@ void handleCircle(Circle& circle) {
         std::cout << "Enter new radius: ";
         std::cin >> newValue;
         circle = Circle(Color::RED, newValue);
-        break;
-    case 3:
         handleColorChange(circle);
         break;
     case 0:
@@ -104,7 +107,9 @@ void handleCircle(Circle& circle) {
     std::cout << std::endl;
 }
 
+//Function that handles all operations with square shape
 void handleSquare(Square& square) {
+    //variables to handle inputs from user
     int choice;
     double scale;
     double newValue;
@@ -112,7 +117,7 @@ void handleSquare(Square& square) {
     std::cout << "Square:" << std::endl;
     square.print();
     std::cout << std::endl;
-    std::cout << "1. Scale\n2. Enter new side length\n3. Change color\n0. Back\nEnter your choice: ";
+    std::cout << "1. Scale\n2. Enter new side length and color\n0. Back\nEnter your choice: ";
     std::cin >> choice;
 
     switch (choice) {
@@ -125,8 +130,6 @@ void handleSquare(Square& square) {
         std::cout << "Enter new side length: ";
         std::cin >> newValue;
         square = Square(Color::GREEN, newValue);
-        break;
-    case 3:
         handleColorChange(square);
         break;
     case 0:
@@ -139,16 +142,22 @@ void handleSquare(Square& square) {
     std::cout << std::endl;
 }
 
+
+//Function that handles all operations with triangle shape
 void handleTriangle(Triangle& triangle) {
+    //variables to handle inputs from user
     int choice;
     double scale;
     double newBase, newHeight;
 
+    //prints out the current shapes size / color, aswell as gives the user the menu to choose what to do with this shape:
     std::cout << "Triangle:" << std::endl;
     triangle.print();
     std::cout << std::endl;
-    std::cout << "1. Scale\n2. Enter new base and height\n3. Change color\n0. Back\nEnter your choice: ";
+    std::cout << "1. Scale\n2. Enter new base and height + color\n0. Back\nEnter your choice: ";
     std::cin >> choice;
+
+
 
     switch (choice) {
     case 1:
@@ -162,8 +171,6 @@ void handleTriangle(Triangle& triangle) {
         std::cout << "Enter new height: ";
         std::cin >> newHeight;
         triangle = Triangle(Color::BLUE, newBase, newHeight);
-        break;
-    case 3:
         handleColorChange(triangle);
         break;
     case 0:
