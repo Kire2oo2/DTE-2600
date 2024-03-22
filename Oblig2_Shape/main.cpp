@@ -10,6 +10,7 @@ int main() {
 
     int choice;
     double scale;
+    double newValue;
 
     do {
         std::cout << "Menu:" << std::endl;
@@ -25,9 +26,25 @@ int main() {
             std::cout << "Circle:" << std::endl;
             circle.print();
             std::cout << std::endl;
-            std::cout << "Enter scaling factor: ";
-            std::cin >> scale;
-            circle * scale;
+            std::cout << "1. Scale\n2. Enter new radius\n0. Back\nEnter your choice: ";
+            std::cin >> choice;
+            switch(choice) {
+            case 1:
+                std::cout << "Enter scaling factor: ";
+                std::cin >> scale;
+                circle * scale;
+                break;
+            case 2:
+                std::cout << "Enter new radius: ";
+                std::cin >> newValue;
+                circle = Circle(Color::RED, newValue);
+                break;
+            case 0:
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+            }
+            std::cout << std::endl;
             circle.print();
             std::cout << std::endl;
             break;
@@ -35,9 +52,25 @@ int main() {
             std::cout << "Square:" << std::endl;
             square.print();
             std::cout << std::endl;
-            std::cout << "Enter scaling factor: ";
-            std::cin >> scale;
-            square * scale;
+            std::cout << "1. Scale\n2. Enter new side length\n0. Back\nEnter your choice: ";
+            std::cin >> choice;
+            switch(choice) {
+            case 1:
+                std::cout << "Enter scaling factor: ";
+                std::cin >> scale;
+                square * scale;
+                break;
+            case 2:
+                std::cout << "Enter new side length: ";
+                std::cin >> newValue;
+                square = Square(Color::GREEN, newValue);
+                break;
+            case 0:
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+            }
+            std::cout << std::endl;
             square.print();
             std::cout << std::endl;
             break;
@@ -45,9 +78,28 @@ int main() {
             std::cout << "Triangle:" << std::endl;
             triangle.print();
             std::cout << std::endl;
-            std::cout << "Enter scaling factor: ";
-            std::cin >> scale;
-            triangle * scale;
+            std::cout << "1. Scale\n2. Enter new base and height\n0. Back\nEnter your choice: ";
+            std::cin >> choice;
+            switch(choice) {
+            case 1:
+                std::cout << "Enter scaling factor: ";
+                std::cin >> scale;
+                triangle * scale;
+                break;
+            case 2:
+                double newBase, newHeight;
+                std::cout << "Enter new base: ";
+                std::cin >> newBase;
+                std::cout << "Enter new height: ";
+                std::cin >> newHeight;
+                triangle = Triangle(Color::BLUE, newBase, newHeight);
+                break;
+            case 0:
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+            }
+            std::cout << std::endl;
             triangle.print();
             std::cout << std::endl;
             break;
