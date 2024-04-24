@@ -5,7 +5,13 @@ project(Oblig3_ArealVask LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(Oblig3_ArealVask main.cpp)
+add_executable(Oblig3_ArealVask main.cpp
+    Room.h
+    Room.cpp
+    Building.h
+    Building.cpp
+    Handler.h
+    Handler.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS Oblig3_ArealVask
