@@ -1,0 +1,60 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <map>
+
+struct Room {
+    int length;
+    int width;
+};
+
+int main() {
+    // Åpne inputfilen for lesing
+    std::ifstream input_file("input.txt");
+
+    // Sjekk om filen ble åpnet riktig
+    if (!input_file.is_open()) {
+        std::cerr << "Kunne ikke åpne inputfilen." << std::endl;
+        return 1;
+    }
+
+    // Map for å lagre totalarealet for hvert bygg
+    std::map<char, int> building_areas;
+
+    // Les innholdet i inputfilen linje for linje
+    std::string line;
+    while (std::getline(input_file, line)) {
+        // Les dataene fra linjen
+        int length, width;
+        char building;
+        std::istringstream iss(line);
+        if (!(iss >> length >> width >> building)) {
+            std::cerr << "Ugyldig input: " << line << std::endl;
+            continue;
+        }
+
+        // Beregn arealet av rommet
+        int area = length * width;
+
+        // Legg til arealet i totalarealet for bygget
+        building_areas[building] += area;
+    }
+
+    // Lukk inputfilen
+    input_file.close();
+
+    // Åpne outputfilen for skriving
+    std::ofstream output_file("output.txt");
+
+    // Skriv totalarealet for hvert bygg til outputfilen
+    for (const auto& pair : building_areas) {
+        output_file << "Bygg " << pair.first << ": Totalt areal = " << pair.second << " kvadratmeter" << std::endl;
+    }
+
+    // Lukk outputfilen
+    output_file.close();
+
+    std::cout << "Totalarealet for hvert bygg er skrevet til outputfilen." << std::endl;
+
+    return 0;
+}
