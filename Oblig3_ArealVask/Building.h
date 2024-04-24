@@ -1,4 +1,6 @@
-#pragma once
+#ifndef HANDLER_H
+#define HANDLER_H
+
 #include <string>
 #include <vector>
 #include "Room.h"
@@ -19,3 +21,4 @@ public:
     int getCleaningStaff() const;
     double getTotalArea() const;
 };
+#endif // HANDLER_H
