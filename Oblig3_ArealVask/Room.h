@@ -1,5 +1,4 @@
-#ifndef ROOM_H
-#define ROOM_H
+#pragma once //headerfil, sørger for kun inkluderes 1 gang
 
 class Room {
 private:
@@ -14,5 +13,3 @@ public:
     int getLength() const;
     int getWidth() const;
 };
-
-#endif // ROOM_H
